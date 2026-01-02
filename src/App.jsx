@@ -78,43 +78,6 @@ function App() {
           rockets={rockets}
           onSelectLaunch={setSelectedLaunch}
         />
-
-        <div className="overflow-x-auto">
-          <div className="grid grid-cols-5 gap-4 font-semibold border-b pb-2 mb-2">
-            <div>#</div>
-            <div>Mission</div>
-            <div>Rocket</div>
-            <div>Date</div>
-            <div>Status</div>
-          </div>
-
-          {launches.map((launch, index) => (
-            <div
-              key={launch.id}
-              className="grid grid-cols-5 gap-4 items-center py-3 border-b last:border-b-0"
-            >
-              <div className="text-gray-500">{index + 1}</div>
-
-              <div className="font-medium">{launch.name}</div>
-
-              <div className="text-gray-600">
-                {rockets[launch.rocket] || 'Unknown'}
-              </div>
-
-              <div className="text-gray-500 text-sm">
-                {new Date(launch.date_utc).toLocaleDateString()}
-              </div>
-
-              <div className="text-sm">
-                {launch.success === null
-                  ? 'Pending'
-                  : launch.success
-                  ? 'Success ✅'
-                  : 'Failed ❌'}
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
 
       {/* {selectedLaunch && (
