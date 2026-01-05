@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import LaunchesList from './components/LauchesList';
-// import LaunchDetails from './components/launch-details';
+import LaunchDetails from './components/LauchDetails';
 import { Loader2 } from 'lucide-react';
 import './App.css';
 
@@ -80,13 +80,13 @@ function App() {
         />
       </div>
 
-      {/* {selectedLaunch && (
+      {selectedLaunch && (
       <LaunchDetails
         launch={selectedLaunch}
         rocketName={rockets[selectedLaunch.rocket]}
         onClose={() => setSelectedLaunch(null)}
       />
-    )} */}
+    )}
     </div>
   );
 }

@@ -20,24 +20,24 @@ export default function LaunchesList({ launches, rockets, onSelectLaunch }) {
 
 
   const filteredAndSortedLaunches = useMemo(() => {
-    let filtered = launches;
-
+    const safeLaunches = Array.isArray(launches) ? launches : [];
+    let filtered = safeLaunches;
+  
     if (activeFilter === 'success') {
-      filtered = filtered.filter((launch) => launch.success === true);
+      filtered = filtered.filter((l) => l.success === true);
     } else if (activeFilter === 'failed') {
-      filtered = filtered.filter((launch) => launch.success === false);
+      filtered = filtered.filter((l) => l.success === false);
     } else if (activeFilter === 'upcoming') {
-      filtered = filtered.filter((launch) => launch.upcoming === true);
+      filtered = filtered.filter((l) => l.upcoming === true);
     }
-
-    const sorted = [...filtered].sort((a, b) => {
+  
+    return [...filtered].sort((a, b) => {
       const dateA = new Date(a.date_utc).getTime();
       const dateB = new Date(b.date_utc).getTime();
       return sortOrder === 'asc' ? dateA - dateB : dateB - dateA;
     });
-
-    return sorted;
   }, [launches, activeFilter, sortOrder]);
+  
 
   const totalPages = Math.ceil(filteredAndSortedLaunches.length / PAGE_SIZE);
   const paginatedLaunches = useMemo(() => {
