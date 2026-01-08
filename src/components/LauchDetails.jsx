@@ -15,7 +15,7 @@ export default function LaunchDetails({ launch, rocketName, onClose }) {
             </div>
             <button
               onClick={onClose}
-              className="p-1 hover:bg-muted rounded-md transition-colors flex-shrink-0 text-accent hover:text-accent/80"
+              className="p-1 hover:bg-muted rounded-md transition-colors flex-shrink-0 text-accent hover:text-accent/80 cursor-pointer"
               aria-label="Close"
             >
               <X className="w-6 h-6" />
@@ -82,9 +82,9 @@ export default function LaunchDetails({ launch, rocketName, onClose }) {
                 <p className="font-semibold text-accent">{launch.flight_number}</p>
               </div>
               <div className="bg-card/40 border border-border/30 rounded-lg p-3">
-                <p className="text-xs text-muted-foreground mb-2 uppercase tracking-wide font-semibold">Success</p>
+                <p className="text-xs text-muted-foreground mb-2 uppercase tracking-wide font-semibold">Status</p>
                 <p className="font-semibold text-foreground">
-                  {launch.success === null ? "TBD" : launch.success ? "✓ Yes" : "✗ No"}
+                  {launch.success === null ? "Pending" : launch.success ? "Successed" : "Failed"}
                 </p>
               </div>
             </div>
@@ -93,7 +93,7 @@ export default function LaunchDetails({ launch, rocketName, onClose }) {
           <div className="sticky bottom-0 flex gap-2 p-6 border-t border-border/30 bg-card/80 backdrop-blur-sm">
             <button
               onClick={onClose}
-              className="flex-1 border border-accent/30 hover:border-accent hover:bg-accent/10 text-accent bg-background/50 px-4 py-2 rounded-md font-medium transition-colors"
+              className="flex-1 border border-accent/30 hover:border-accent hover:bg-accent/10 text-accent bg-background/50 px-4 py-2 rounded-md font-medium transition-colors cursor-pointer"
             >
               Close
             </button>

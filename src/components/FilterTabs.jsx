@@ -5,7 +5,7 @@ export default function FilterTabs({ filters, activeFilter, onFilterChange }) {
         <button
           key={key}
           onClick={() => onFilterChange(key)}
-          className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${
+          className={`px-2 py-2 rounded-md text-sm font-medium transition-all ${
             activeFilter === key
               ? 'bg-accent text-background border border-accent'
               : 'border border-border/50 text-foreground hover:border-accent/50'
